@@ -16,17 +16,11 @@ const OTPgen = () => {
     <main>
       <h2>OTP Generator</h2>
       <form>
-        <label htmlFor='text'>OTP Length</label>
-        <input type='text' id='text' placeholder='Write your desired OTP length:' ref={refAux} />
+        <label htmlFor='otpInput'>OTP Length</label>
+        <input type='number' min={1} max={6} id='otpInput' ref={refAux} />
       </form>
       <button onClick={handleClick}>Generate OTP</button>
-      <section>
-        {
-          code.forEach(elem => {
-            <BoxDigit digit={elem} />
-          })
-        }
-      </section>
+      <BoxDigit OTPcode={code} />
     </main>
   )
 }
